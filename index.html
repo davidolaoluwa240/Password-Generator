@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css" />
+  </head>
+  <body>
+    <!-- modal overlay -->
+    <div class="modal--overlay hidden"></div>
+
+    <!-- more options modal -->
+    <div class="more--options__modal modal hidden" data-modal-name="moreOption">
+      <button
+        class="btn btn--primary more--options__btn"
+        data-modal-open="savedHistory"
+      >
+        Saved History
+      </button>
+      <button
+        class="btn btn--primary more--options__btn"
+        data-modal-open="newHistory"
+      >
+        New History
+      </button>
+      <button
+        class="btn btn--primary more--options__btn"
+        data-modal-open="close"
+      >
+        Go Back
+      </button>
+    </div>
+
+    <!-- saved history modal -->
+    <div
+      class="saved--history__modal modal hidden"
+      data-modal-name="savedHistory"
+    >
+      <div class="saved--history__modal--content"></div>
+
+      <button
+        class="btn btn--primary more--options__btn"
+        data-modal-open="moreOption"
+      >
+        Go Back
+      </button>
+    </div>
+
+    <!-- new history modal -->
+    <div class="new--history__modal modal hidden" data-modal-name="newHistory">
+      <div class="form--group">
+        <label class="form--label" for="websiteName">Website Name</label>
+        <input type="text" id="websiteName" class="form--control" />
+      </div>
+      <div class="form--group">
+        <label class="form--label" for="generatedPassword" autocomplete="off"
+          >Generated Password</label
+        >
+        <input
+          type="text"
+          readonly="readonly"
+          id="generatedPassword"
+          class="form--control"
+        />
+      </div>
+      <button
+        class="btn btn--primary more--options__btn is--centered save--to__history--btn"
+        data-modal-open="savedHistory"
+      >
+        Save To History
+      </button>
+      <button
+        class="btn btn--primary more--options__btn is--centered"
+        data-modal-open="moreOption"
+      >
+        Go Back
+      </button>
+    </div>
+
+    <!-- password generator -->
+    <section class="password--generator__wrapper">
+      <div class="password--generator">
+        <header>
+          <h2>Password Generator</h2>
+        </header>
+
+        <!-- password generator display -->
+        <main>
+          <div class="password--generator__item">
+            <p class="password--generator__item--label">Generated Password</p>
+            <div
+              class="password--generator__item--card password--generator__item--card__display"
+            >
+              <div class="password--generator__item--card__left">
+                <p>bolljtgfbsyx</p>
+              </div>
+              <div class="password--generator__item--card__right">
+                <button
+                  class="password--generator__item--card__display--btn btn btn--secondary"
+                >
+                  Copy
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- password generator length -->
+          <div class="password--generator__item">
+            <p class="password--generator__item--label">Length</p>
+            <div
+              class="password--generator__item--card password--generator__item--card__range"
+            >
+              <div class="password--generator__item--card__left">
+                <input
+                  type="range"
+                  class="password--generator__item--card__range--input"
+                  value="12"
+                  min="12"
+                  max="32"
+                />
+              </div>
+              <div class="password--generator__item--card__right">
+                <p class="password--generator__item--card__range--display">
+                  12
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- password generator settings -->
+          <div class="password--generator__item">
+            <p class="password--generator__item--label">Settings</p>
+            <div
+              class="password--generator__item--card password--generator__item--card__settings"
+            >
+              <div class="password--generator__item--card__left">
+                <p>Include numbers</p>
+              </div>
+              <div class="password--generator__item--card__right">
+                <div class="switch--track" data-switch="number">
+                  <div class="switch--thumb"></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="password--generator__item--card password--generator__item--card__settings"
+            >
+              <div class="password--generator__item--card__left">
+                <p>Include letters</p>
+              </div>
+              <div class="password--generator__item--card__right">
+                <div
+                  class="switch--track switch--track__active"
+                  data-switch="letter"
+                >
+                  <div class="switch--thumb"></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="password--generator__item--card password--generator__item--card__settings"
+            >
+              <div class="password--generator__item--card__left">
+                <p>Include symbols</p>
+              </div>
+              <div class="password--generator__item--card__right">
+                <div class="switch--track" data-switch="symbol">
+                  <div class="switch--thumb"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer>
+          <button class="btn btn--primary btn--generate__password">
+            Generate Password
+          </button>
+          <button
+            class="btn btn--secondary btn--more__option"
+            data-modal-open="moreOption"
+          >
+            More Option
+          </button>
+        </footer>
+      </div>
+    </section>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
